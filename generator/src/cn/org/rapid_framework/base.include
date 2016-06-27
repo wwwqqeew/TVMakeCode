@@ -1,0 +1,4 @@
+<#include "/macro.include"/>
+<#include "/java_copyright.include">
+<#include "/judgeProperty.include">
+<#include "/java_util.include">

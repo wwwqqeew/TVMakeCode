@@ -1,0 +1,14 @@
+<#include "/macro.include"/>
+<#include "/java_copyright.include">
+<#assign className = table.className>   
+<#assign classNameLower = className?uncap_first> 
+
+<#list table.otable as list>
+	${list.pname}
+</#list>
+
+<value>com/createwealth/domain/.hbm.xml</value>
+
+<bean id="${table.sqlName}Action" class="${basepackage}.web.website.action.${className}Action" scope="prototype" />
+
+<bean id="${table.sqlName}Services" class="${basepackage}.service.imple.${className}Service" />

@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+body {
+    background-color: #eee;
+    padding-bottom: 40px;
+    padding-top: 40px;
+	width:100% !important;
+	height:100% !important;
+}
+.navbarMy {
+  position: absolute !important;
+  top: 0 !important;
+  width: 100%;
+}
+.main {
+  background-color: yellow;
+  position: absolute;
+  bottom: 0px;
+  top: 50px;
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+<#include "/custom.include">
+<#include "/macro.include"/>
+<#include "/java_copyright.include">
+<#include "/judgeProperty.include">
+<#assign className = table.className>   
+<#assign classNameLower = className?uncap_first>
+<#assign actionExtension = "do">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ritu.dao.${className}Dao">
+	<resultMap id="${classNameLower}" type="${classNameLower}">
+	<#list table.columns as column>
+		<result property="${column.columnNameLower}" column="${column.columnNameLower}" />
+	</#list>
+	</resultMap>
+</mapper>

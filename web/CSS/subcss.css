@@ -1,0 +1,66 @@
+BODY  {
+	font-size : 12px;
+	font-weight : normal;
+	line-height: 18px;
+	font-style : normal;
+	text-decoration : none;
+}
+.leftbg {
+	background-repeat: no-repeat;
+	background-position: center;
+	font-size: 14px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	text-decoration: none;
+	height: 40px;
+	background-image: url(../image/bg/title2.gif);
+}
+
+P  {
+	font-size : 12px;
+	font-weight : normal;
+	font-style : normal;
+	line-height: 14px;
+}
+A  {
+	font-size : 12px;
+	font-weight : normal;
+	font-style : normal;
+	text-decoration : none;
+	;
+	color: #000000;
+	line-height: 1.5em;
+}
+A:Visited  {		font-size : 12px;
+	font-weight : normal;
+	font-style : normal;
+	text-decoration : none;
+	;
+	color: #000000;
+	line-height: 1.5em;
+
+}
+A:Active  {		font-size : 12px;
+	font-weight : normal;
+	font-style : normal;
+	text-decoration : none;
+	;
+	color: #000000;
+	line-height: 1.5em;
+
+}
+A:Hover  {		font-size : 12px;
+	font-weight : normal;
+	font-style : normal;
+	text-decoration : none;
+	;
+	color: #FF9900;
+	line-height: 1.5em;
+
+}
+EM  {font-size : 9pt;font-weight : normal;font-style : normal;text-transform : none;}
+I  {font-family: Arial;	font-size : 9pt;font-weight : bold;font-style : italic;}
+BIG  {font : 13pt Times New Roman;font-weight : bold;}
+B  {font-size : 9pt;text-decoration : none;font-weight : bold;}
+TD  {font-size : 9pt;font-weight : normal;font-style : normal;}
+Strong  {font-family: "Arial";font-size : 9pt;font-weight : bold;text-decoration : none;}

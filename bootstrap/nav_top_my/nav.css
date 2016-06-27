@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+body {
+    background-color: #eee;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+.breadcrumbMy{
+	*+width:100%  !important;
+}
+li{
+	*+float:left  !important;
+}
+.breadcrumbMy > li + li::before{
+content: " |" !important;
+}
+.breadcrumbMy > li + li{
+*+border-left:solid 1px #00CC66!important;
+*+margin-left:5px!important;
+*+padding-left:5px!important;
+}
+
+.active {
+   /* background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%) repeat scroll 0 0;*/
+   font-size: 18px;
+}
+

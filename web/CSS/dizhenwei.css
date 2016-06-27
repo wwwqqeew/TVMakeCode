@@ -1,0 +1,57 @@
+.heizi14 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+a.b14:link {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+a.b14:visited {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+a.b14:hover {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF9900;
+	text-decoration: none;
+}
+a.b14:active {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+a.baizi14:link {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.baizi14:visited {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.baizi14:hover {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF9900;
+	text-decoration: none;
+}
+a.baizi14:active {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}.bg1 {
+	background-image: url(../image/bg/bg1.jpg);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}

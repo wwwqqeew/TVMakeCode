@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> Map Test </title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script src="ql2.js" type="text/javascript"></script>
+	<script src="RMap5.js" type="text/javascript"></script>
+	
+	
+	<style>
+	html,body{
+		width:100%;
+		height:100%;
+		margin:0;
+		padding:0;
+	}
+	</style>
+</head>
+
+<body>
+<div id="left" style="float:left;height:70%;width:5%;background-color:#00FFFF;"></div>
+<div id="mapdiv" style="float:left;height:95%;width:95%;"></div>
+<script language="JavaScript">
+
+
+
+
+$(document).ready(function(){ 
+	 //创建一个RMap对象
+	window.map = new RMap(document.getElementById("mapdiv"), 116, 40, 8, $('#mapdiv').width(), $('#mapdiv').height());
+	  
+	var rmap = window.map;
+	
+	//显示地图
+	rmap.show();
+	
+	var data = __alltypes.features;
+	var dataListLine = {};
+	//alert((dataListLine["ss"] || false) ? true : false);
+	//alert(data.features[1].geometry.coordinates[0][0]);
+	//数据处理
+	var i=0
+	for (; i < data.length; i++) {
+		var name = data[i].properties["隧道名"];
+		var remark = data[i].properties["备注"];
+		//判断是否存在了对象,存在直接提取
+		if ( !(dataListLine[name] || false) ? true : false ) {
+			var newDate = {};//当前隧道数据
+			var arrayObj = new Array([3]);//隧道线路，0：起点，1中间点，2终点
+			newDate[remark] = data[i];
+			dataListLine[name] = newDate;
+			dataListLine[name].latlngs = arrayObj;
+		}else{
+			dataListLine[name][remark] =  data[i];
+		}
+		//debugger;
+		//判断当前点要放在那个位置
+		if (remark == "起点") {
+			dataListLine[name].latlngs[0] = {Cx:dataListLine[name][remark].geometry.coordinates[0][0],Cy:dataListLine[name][remark].geometry.coordinates[0][1]};
+		} else if(remark == "中心点"){
+			dataListLine[name].latlngs[1] = {Cx:dataListLine[name][remark].geometry.coordinates[0][0],Cy:dataListLine[name][remark].geometry.coordinates[0][1]};
+		}else if(remark == "终点"){
+			dataListLine[name].latlngs[2] = {Cx:dataListLine[name][remark].geometry.coordinates[0][0],Cy:dataListLine[name][remark].geometry.coordinates[0][1]};
+			//创建一个图形
+		    var shape =  new RLine( dataListLine[name].latlngs, 3, "#FF5958", 1 );
+			//将图形添加到地图
+			rmap.addGraphics(shape)
+		}else{
+			alert("异常："+remark);
+		};
+	  
+	};
+		//新建一个无图标注
+		alert("共处理点："+i);
+		//debugger;
+		rmap.setCenter( data[0].geometry.coordinates[0][0] , data[0].geometry.coordinates[0][1]  );
+			rmap.refresh();
+		
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+BODY  {/**/
+	  font-family: "宋体";
+	  font-size: 13px;
+      /*font-size : 9pt;*/
+	  font-weight : normal;
+	  line-height: 18px;
+	  font-style : normal;
+	  text-decoration : none;
+	  font:normal normal normal 12px/1.5em 
+	  }
+
+table,td{/*控制表格的大小和颜色 以及字体之间的间距*/
+	border-collapse:collapse;
+	border:1px solid #2a91bc;
+	word-break:break-all;
+	font-size: 13px;
+	font-style: normal;
+	line-height: 1.5em;
+	font-weight: normal;
+	font-variant: normal;
+	   }
+P  {
+    font-size : 9pt;
+	font-weight : normal;
+	font-style : normal;
+	}
+.kuang {
+	border: 1px solid #FFFFFF;
+}
+
+A  {
+   font-size : 9pt;
+   font-weight : normal;
+   font-style : normal;
+   text-decoration : none; 
+   color: #000000
+   }
+A:Visited  {
+   font-size : 9pt
+   ;font-weight : normal;
+   font-style : normal;
+   text-decoration : none;
+   }
+A:Active  {
+   font-size : 9pt;
+   font-weight : normal;
+   font-style : normal;
+   color:red;
+   text-decoration : none;
+   }
+A:Hover  {
+	font-weight : bold;
+	font-style : normal;
+	color: #FF3300;
+	text-decoration: underline
+}
+#top_awards
+ {
+	height:133px;
+	width:96%;
+	text-align:center;
+	border-top:1px solid #dddddd;
+	border-bottom:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	background-image: none;
+	background-repeat: no-repeat;
+ 
+  }
+.header	{/*表格上方标题*/
+	font-family: Tahoma, Verdana;
+	font-size:14px;
+	color: #FFFFFF;
+	height: 30px;
+
+
+	filter:progid:DXImageTransform.microsoft.gradient
+    (gradienttype=0,startColorStr=#98d8fe,endColorStr=#d7effe)
+; 		background-image: url(../image/bg/title1.jpg);
+	background-repeat: repeat-x;
+	font-weight: bolder;
+	vertical-align: middle;
+	background-color: #2A91BC;
+
+}
+.header1	{
+	font-family: Tahoma, Verdana;
+	font-size: 9pt;
+	color: #000000;
+	background-color: #999999;
+	height: 30px;
+}
+.category{
+font-family: Tahoma, Verdana; font-size: 9pt; color: #000000; background-color: #EFEFEF
+}
+
+
+.inputbutton{
+     border:solid 1px #0066FF;
+     background:#57ACD5; 
+     width:80px;
+}
+
+
+.line{
+border-bottom:1px solid #0000ff;
+color:#0000ff;
+border-left:0px;
+border-right:0px;
+border-top:0px;
+background-color:transparent;    
+width:148px;
+}

@@ -1,0 +1,15 @@
+<#include "/macro.include"/>
+<#include "/java_copyright.include">
+
+
+<value>com/createwealth/domain/
+
+<#list clazz.otable as list>
+	${list.ptype}  ${list.pname} ${list.pnameLower} ${list.pnameUpwer}  ${list.size} ${list.remark}
+</#list>
+
+.hbm.xml</value>
+
+<bean id="Action" class="${basepackage}.web.website.action.Action" scope="prototype" />
+
+<bean id="Services" class="${basepackage}.service.imple.Service" />
