@@ -6,7 +6,7 @@
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first>
 <#assign actionExtension = "do">
-package com.ritu.${pjName}.service.modules;
+package com.ritu.${pjName}.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,8 +29,7 @@ import com.ritu.${pjName}.utils.base.EntityImplDao;
 import com.ritu.${pjName}.utils.base.BaseService;
 import com.ritu.${pjName}.utils.base.EntityDao;
 import com.ritu.${pjName}.utils.PageSetting;
-import com.ritu.nanning.entity.Testwj;
-import com.ritu.nanning.utils.excel.ImportMsg;
+import com.ritu.${pjName}.utils.excel.ImportMsg;
 
 /**
  * @function ${table.columns[0].columnAlias}业务层
@@ -208,7 +207,7 @@ public class ${className}Service extends BaseService<${className},<@getTablePkTy
 		msg.setMsg(MSG.toString());
 		System.out.println(MSG);
 		return msg;
-	
+	}
 }
 
 //外键List2

@@ -27,8 +27,48 @@ public class GeneratorMain {
 //		g.generateByTable("properties".toLowerCase());
 //		g.generateByTable("geometry".toLowerCase());
 //		g.generateByClass(aatest.class);
-		g.generateByTable("demo".toLowerCase());
-//		g.generateByTable("template".toLowerCase());
+//		g.generateByTable("demo".toLowerCase());
+		
+		//都没
+//		g.generateByTable("enterprise".toLowerCase());
+//		g.generateByTable("government".toLowerCase());
+//		g.generateByTable("individual".toLowerCase());
+//		g.generateByTable("industry".toLowerCase());
+//		g.generateByTable("park".toLowerCase());
+//		g.generateByTable("tourism".toLowerCase());
+		
+//		g.generateByTable("newcity".toLowerCase());
+//		g.generateByTable("zhTraffic".toLowerCase());
+//		g.generateByTable("industryPlan".toLowerCase());
+//		g.generateByTable("resourceSupply".toLowerCase());
+//		g.generateByTable("port".toLowerCase());
+		
+		g.generateByTable("testwj".toLowerCase());
+		g.generateByTable("testwjot".toLowerCase());
+		
+//		g.generateByTable("documentreturn".toLowerCase());
+//		g.generateByTable("documentstoreceive".toLowerCase());
+//		g.generateByTable("longcatdistance".toLowerCase());
+//		g.generateByTable("shortcardispatch".toLowerCase());
+//		
+//		g.generateByTable("borrowthecar".toLowerCase());
+//		g.generateByTable("callThePolice".toLowerCase());
+//		g.generateByTable("vehicleLine".toLowerCase());
+//		g.generateByTable("vehicleRescue".toLowerCase());
+//		g.generateByTable("vehicleDiagnosis".toLowerCase());
+//		g.generateByTable("workforceManagement".toLowerCase());
+//		g.generateByTable("residentialQuarters".toLowerCase());
+//		g.generateByTable("residentialQuartersbig".toLowerCase());
+//		g.generateByTable("vehicleInformation".toLowerCase());
+//		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		//System.out.println("44444:"+aatest.class.getTypeParameters().length);
 		Runtime.getRuntime().exec("cmd.exe /c start d:\\webapp-generator-output");
@@ -44,11 +84,12 @@ public class GeneratorMain {
 		//g.generateByAllTable();
 //		g.generateByTable("attractions".toLowerCase());
 //		g.generateByTable("testWj".toLowerCase());
-		g.generateByTable("testwjOt".toLowerCase());
+//		g.generateByTable("testwjOt".toLowerCase());
 //		g.generateByTable("properties".toLowerCase());
 //		g.generateByTable("geometry".toLowerCase());
 //		g.generateByClass(aatest.class);
 		//System.out.println("44444:"+aatest.class.getTypeParameters().length);
+//		g.generateByTable("testwjOt".toLowerCase());
 		Runtime.getRuntime().exec("cmd.exe /c start d:\\webapp-generator-output");
 	}
 }

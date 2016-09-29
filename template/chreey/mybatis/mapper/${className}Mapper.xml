@@ -1,0 +1,140 @@
+<#include "/custom.include">
+<#include "/java_copyright.include">
+<#include "/judgeProperty.include">
+<#assign className = table.className>   
+<#assign classNameLower = className?uncap_first>
+<#assign actionExtension = "do">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2015-2016 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ritu.cherry.repository.${className}Repository">
+
+<@ManyToOneResult/>
+	<#macro ManyToOneResult>
+	<#list table.importedKeys.associatedTables?values as foreignKey>
+	<#assign fkSqlTable = foreignKey.sqlTable>
+	<#assign fkTable    = fkSqlTable.className>
+	<#assign fkPojoClass = fkSqlTable.className>
+	<#assign fkPojoClassVar = fkPojoClass?uncap_first>
+	<resultMap id="${classNameLower}Map" type="com.ritu.cherry.domain.${className}">
+	  <association property="${fkPojoClassVar}" select="get${fkPojoClass}" 
+		column="${fkPojoClassVar}_id"/> 
+	</resultMap>
+	
+	<select id="get${fkPojoClass}" parameterType="Long" resultType="com.ritu.cherry.domain.${fkPojoClass}">
+		select * from cherry_${fkPojoClassVar}
+		<where>
+				and id = ${r'#'}{id}
+		</where>
+		order by createTime DESC
+	</select>
+	</#list>
+	</#macro>
+
+	<select id="getList" parameterType="com.ritu.cherry.domain.vo.${className}Vo" resultType="com.ritu.cherry.domain.${className}">
+		select * from cherry_${classNameLower}
+		<where>
+		<#list table.columns as column>
+			<#if !column.pk>
+			<#if !isforeignKey(column)>
+			<if test="${column.columnNameLower} !=null and ${column.columnNameLower} !='' ">
+				and ${column.columnNameLower} like CONCAT('%', ${r'#'}{${column.columnNameLower}},'%')
+			</if>
+          	<#else>
+	    	</#if>
+			</#if>
+		</#list>
+		</where>
+		order by createTime DESC LIMIT ${r'#'}{pageIndex},${r'#'}{limit}
+	</select>
+
+	<select id="getListSize"  parameterType="com.ritu.cherry.domain.vo.${className}Vo"  resultType="int">
+		select count(*) from cherry_${classNameLower}
+		<where>
+		<#list table.columns as column>
+			<#if !column.pk>
+			<#if !isforeignKey(column)>
+			<if test="${column.columnNameLower} !=null and ${column.columnNameLower} !='' ">
+				and ${column.columnNameLower} like CONCAT('%', ${r'#'}{${column.columnNameLower}},'%')
+			</if>
+          	<#else>
+	    	</#if>
+			</#if>
+		</#list>
+		</where>
+		order by createTime DESC
+	</select>
+	
+	<insert id="add" parameterType="com.ritu.cherry.domain.${className}" >
+		insert into cherry_${classNameLower}
+		(
+		<#list table.columns as column>
+			<#if !column.pk>
+			<#if !isforeignKey(column)>
+			${column.columnNameLower},
+          	<#else>
+	    	</#if>
+			</#if>
+		</#list>
+		)
+		values(
+		<#list table.columns as column>
+			<#if !column.pk>
+			<#if !isforeignKey(column)>
+			${r'#'}{${column.columnNameLower}},
+          	<#else>
+	    	</#if>
+			</#if>
+		</#list>
+		)
+	</insert>
+	
+	<delete id="delete">
+		delete from cherry_${classNameLower} where 
+		<#list table.columns as column>
+			<#if column.pk>
+			${column.columnNameLower} = ${r'#'}{${column.columnNameLower}}
+			</#if>
+		</#list>
+	</delete>
+	
+	<update id="update">
+		update cherry_${classNameLower} set
+		<#list table.columns as column>
+			<#if !column.pk>
+			<#if !isforeignKey(column)>
+			${column.columnNameLower} = ${r'#'}{${column.columnNameLower}},
+          	<#else>
+	    	</#if>
+			</#if>
+		</#list>
+		where
+		 <#list table.columns as column>
+			<#if column.pk>
+			${column.columnNameLower} = ${r'#'}{${column.columnNameLower}}
+			</#if>
+		</#list>
+	</update>
+	
+	<select id="get" parameterType="Map" resultType="com.ritu.cherry.domain.${className}">
+		select * from cherry_${classNameLower}
+		<where>
+		<#list table.columns as column>
+			<#if column.pk>
+			<if test="${column.columnNameLower} !=null and ${column.columnNameLower} !='' ">
+				and ${column.columnNameLower} = ${r'#'}{${column.columnNameLower}}
+			</if>
+			</#if>
+		</#list>
+		</where>
+		order by createTime DESC
+	</select>
+</mapper>

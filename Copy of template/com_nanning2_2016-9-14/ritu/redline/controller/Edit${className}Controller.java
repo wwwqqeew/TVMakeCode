@@ -6,7 +6,7 @@
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first>
 <#assign actionExtension = "do">
-package com.ritu.${pjName}.web.modules;
+package com.ritu.${pjName}.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ritu.${pjName}.entity.${className};
 import com.ritu.${pjName}.entity.Demo;
-import com.ritu.${pjName}.service.modules.${className}Service;
+import com.ritu.${pjName}.service.${className}Service;
 import com.ritu.${pjName}.utils.JsonBuilder;
 import com.ritu.${pjName}.utils.base.BaseEditControl;
 import com.ritu.${pjName}.utils.base.BaseService;

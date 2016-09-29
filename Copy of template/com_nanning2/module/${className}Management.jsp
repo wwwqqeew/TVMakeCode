@@ -36,7 +36,7 @@
 				<div class = "searchItem">${htm_notes(column)}:<select class="${fk_notes(column)}  search-input" name="${column.columnNameLower}"  ></select></div>
 				</#if>
 			</#if>
-			</#list>
+		</#list>
 		<div class = "searchSub-item">
 			<input type="button" class="search-btn btn-base" value="查询">
 		</div>

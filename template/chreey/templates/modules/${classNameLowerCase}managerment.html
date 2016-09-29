@@ -1,0 +1,120 @@
+<#include "/custom.include">
+<#include "/java_copyright.include">
+<#include "/judgeProperty.include">
+<#assign className = table.className>   
+<#assign classNameLower = className?uncap_first>
+<#assign actionExtension = "do">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="pragma" content="no-cache"/> 
+		<meta http-equiv="cache-control" content="no-cache"/>
+		<meta http-equiv="expires" content="0"/>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+		<link rel="stylesheet" href="./css/font.css" />
+		<link rel="stylesheet" href="./css/basemanagerment.css" />
+		<title>${table.columns[0].columnAlias}管理</title>
+	</head>
+	<body>
+	<input type="hidden" id="csrf_token" th:name="${r'#'}{_csrf.parameterName}" th:value="${r'#'}{_csrf.token}" />
+		<div class="basemanagerment-mainDiv">
+			 <div class="doc-content basemanagerment-doc-content">
+			    <ul class="nav-tabs basemanagerment-nav-tabs">
+			      <li class="basemanagerment-tab active"><a href="#">${table.columns[0].columnAlias}管理</a></li>
+			    </ul>
+			    <div class="span-width" >
+					<div class="basemanagerment-content basemanagerment-home-content">
+						<div class="basemanagerment-option-frame">
+						
+							<form class="basemanagerment-condition-frame" id="${classNameLower}managerment-search-form"><!-- 搜索表单id：key+'-search-form' -->
+								<input class="basemanagerment-condition-input hidden" name="state" value="1"/>
+								<div class="basemanagerment-condition-frame-sub">
+					<#list table.columns as column>
+						<#if !column.pk>
+							<#if !isforeignKey(column)>
+								<#if (column.sqlTypeName == "datetime")>
+								<div class="basemanagerment-condition">
+									<div class="basemanagerment-condition-text ">${htm_notes(column)}:</div>
+									<div class="basemanagerment-condition-inputDiv">
+										<input class="basemanagerment-condition-input" name="${column.columnNameLower}"/>
+									</div>
+								</div>
+								<#else>
+								<div class="basemanagerment-condition">
+									<div class="basemanagerment-condition-text ">${htm_notes(column)}:</div>
+									<div class="basemanagerment-condition-inputDiv">
+										<input class="basemanagerment-condition-input" name="${column.columnNameLower}"/>
+									</div>
+								</div>
+								</#if>
+							<#else>
+							</#if>
+						</#if>
+					</#list>
+								</div>
+							</form>
+								<div class="basemanagerment-button-frame">
+									<div class="basemanagerment-button-frame-sub ">
+										<button class="button button-primary basemanagerment-button" id="${classNameLower}managerment-reset-btn">重置</button>
+										<button class="button button-success basemanagerment-button" id="${classNameLower}managerment-search-btn">查询</button>
+									</div>
+									<div class="basemanagerment-button-frame-sub ">
+										<button class="button button-primary basemanagerment-button" id="${classNameLower}managerment-disabled-btn">禁用</button>
+										<button class="button button-danger basemanagerment-button " id="${classNameLower}managerment-delete-btn">删除</button>
+										<button class="button button-success basemanagerment-button" id="${classNameLower}managerment-update-btn">修改</button>
+										<button class="button button-success basemanagerment-button" id="${classNameLower}managerment-add-btn">新增</button>
+									</div>
+								</div>
+							</div>
+							<div class="basemanagerment-table-frame"><!-- 表单样式：key+'-table-frame' -->
+								<div id="${classNameLower}managerment-table-grid"></div><!-- 表单id：key+'-table-grid' -->
+								<div id="${classNameLower}managerment-bar"></div>
+							</div>
+						</div>
+						<div class="basemanagerment-content ${classNameLower}managerment-add-content hidden" id="${classNameLower}managerment-add-content"><!-- 添加表单样式及id：key+'-add-content' -->
+							<div class="row">
+						      <div class="span10 doc-content">
+						        <form class="form-horizontal well" id="${classNameLower}managerment-add-form">
+						         <input type="hidden" class="control-text basemanagerment-add-name "  name="id" />
+					<#list table.columns as column>
+						<#if !column.pk>
+							<#if !isforeignKey(column)>
+								<#if (column.sqlTypeName == "datetime")>
+								<div class="row">
+						            <div class="control-group span12">
+						              <label class="control-label" >${htm_notes(column)}：</label>
+						              <div class="controls">
+						                <input type="text" class="control-text basemanagerment-add-name"  name="${column.columnNameLower}"/>
+						              </div>
+						            </div>
+						         </div>
+								<#else>
+								<div class="row">
+						            <div class="control-group span12">
+						              <label class="control-label" >${htm_notes(column)}：</label>
+						              <div class="controls">
+						                <input type="text" class="control-text basemanagerment-add-name"  name="${column.columnNameLower}"/>
+						              </div>
+						            </div>
+						         </div>
+								</#if>
+							<#else>
+							</#if>
+						</#if>
+					</#list>
+						        </form>
+						      </div>
+						    </div>
+						</div>
+						
+						
+			   		</div>
+			 </div>  
+		</div>
+		
+		<!-- ${table.columns[0].columnAlias}信息主页面  -->
+	</body>
+	<script type="text/javascript" src="./js/manger/modules/${classNameLower}managerment.js"></script>
+	<script type="text/javascript" src="./js/manger/modules/xcommon.js"></script>
+	<script type="text/javascript" src="./js/manger/modules/xoption.js"></script>
+</html>

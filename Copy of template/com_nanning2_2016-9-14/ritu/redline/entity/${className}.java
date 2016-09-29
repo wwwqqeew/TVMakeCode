@@ -26,8 +26,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ritu.nanning.entity.Track;
-import com.ritu.nanning.utils.base.BaseEntity2;
+import com.ritu.${pjName}.utils.base.BaseEntity2;
 
 <#assign datetimeS = 0>
 <#list table.columns as column>
@@ -45,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @latitude 1.0
  */
 @Entity
-@Table(name = "${pjjx}_${classNameLower}")
+@Table(name = "${classNameLower}")
 public class ${className} extends BaseEntity2 {
 	
 	<#if table.compositeId>

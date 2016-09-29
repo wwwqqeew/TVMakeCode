@@ -5,7 +5,7 @@
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first>
 <#assign actionExtension = "do">
-package com.ritu.nanning.entity;
+package com.ritu.${pjName}.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
